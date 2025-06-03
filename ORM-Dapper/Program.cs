@@ -20,6 +20,22 @@ namespace ORM_Dapper
             var productRepository = new ProductRepository(connection);
 
             var products = productRepository.GetAllProducts();
+            
+            var departmentRepo = new DapperDepartmentRepository(connection);
+            
+            departmentRepo.InsertDerpartment("John's New Department");
+            
+            
+            
+            var deparments = departmentRepo.GetAllDepartments();
+
+            foreach (var deparment in deparments)
+            {
+                Console.WriteLine(deparment.DepartmentID);
+                Console.WriteLine(deparment.Name);
+                Console.WriteLine();
+                Console.WriteLine();
+            }
 
             foreach (var product in products)
             {
